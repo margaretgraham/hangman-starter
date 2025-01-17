@@ -6,7 +6,7 @@ document.getElementById("start").addEventListener("click",startGame);
 
 //once at start of the game
 function startGame() {
-    console.log("hi")
+    console.log("guess a letter")
 
     let l = document.getElementById("guessedLetter").value
     console.log(l)
