@@ -2,40 +2,82 @@
 
 //event listeners for startGame and guessLetter
 //for example:
-document.getElementById("start").addEventListener("click",startGame);
+document.getElementById("submit").addEventListener("click",process);
+let resultArray = [0,0,0];
 
-//once at start of the game
-function startGame() {
-    console.log("guess a letter")
 
-    let l = document.getElementById("guessedLetter").value
-    console.log(l)
-    document.getElementById("guessedLetters").innerHTML = l
+function process() {
+    let w = document.getElementById("weight").value;
+    let t = document.getElementById("type").value;
+    let multiplier = 0;
 
-    /*
-    - Reset the board, empty guessedLetters 
-    - Set a word from words array into word - this line will grab  a random element from your words array for you:
-    word = words[Math.floor(Math.random() * words.length)];
-    */
     
+    w = parseFloat(w);
+    t = parseInt(t);
+
+    console.log("Weight:", w);
+    console.log("Type:", t);
+
+    
+    if (t === 1) {
+        multiplier = 0.00027;
+    } else if (t === 2) {
+        multiplier = 0.000375;
+    } else if (t === 3) {
+        multiplier = 0.00065;
+    } else {
+        console.log("Invalid type");
+        return; 
+    }
+
+   
+    let result = w * multiplier;
+
+
+    resultArray[t-1] = result;
+
+    let score = "";
+    let sum = 0;
+    for(let i = 0; i < resultArray.length; i++){
+      sum += resultArray[i];
+    }
+
+    if(sum < .001) {
+      score = "GOOD"
+    } else {
+      score = "BAD"
+    }
+
+    console.log(resultArray);
+    document.getElementById("score").innerHTML = score; 
+
+   
+    document.getElementById("result").innerHTML = 
+        "The amount of CO2 released is " + result.toFixed(6) + " tons";
+
+    draw();
 }
 
-//at start and every time the user enters a guess
-function printWord() {
-
-/*
-Compare each letter in answer word to the letters in guessedLetters using guessedLetters.indexOf(letter).  Use this to build the “_” word with the correctly guessed letters filled in.
-there is a help video for this in classroom 
-*/
-
-
-}
-
-//every time the user enters a guess
-function guessLetter() {
-
-/*
-Manage the game: Add letters to guessedLetters, call printWord, deduct from guesses, check for a win or loss.
-*/
-
+function draw() {
+    var xValues = ["Plastic Trash", "Compost", "Recycling",];
+    //var yValues = resultArray;
+    var barColors = ["red", "green","blue"];
+    
+    new Chart("myChart", {
+      type: "bar",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: resultArray
+        }]
+      },
+      options: {
+        legend: {display: false},
+        title: {
+          display: true,
+          text: "CO2 emissions from this week"
+        }
+      }
+    });
 }

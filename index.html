@@ -1,61 +1,87 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>repl.it</title>
+    <title>trash.tracker</title>
     <link href="styles.css" rel="stylesheet" type="text/css" />
   </head>
  <body>
+  
+  
+  <body>
+  
+      Welcome to Trash Tracker Deborah!
 
-<h1>HANGMAN</h1>
+      <br>
 
-<!-- select box for difficulty? -->
+      <label for="value">Weight of Bin:</label><br>
+      <input type="text" id="weight" placeholder="Weight in pounds" ><br>
 
-<button id="start">Start New Game</button>
+  
+      <select id="type">
+          <option value="1">compost</option>
+          <option value="2">recycling</option>
+          <option value="3">plastic trash</option>
+      </select>
+  
+      <!-- add more fields here? -->
 
-<!-- try the more advanced button system from classroom instead of this! -->
-<select id="guessedLetter">
-  <option value="a">a</option>
-  <option value="b">b</option>
-  <option value="c">c</option>
-  <option value="d">d</option>
-  <option value="e">e</option>
-  <option value="f">f</option>
-  <option value="g">g</option>
-  <option value="h">h</option>
-  <option value="i">i</option>
-  <option value="j">j</option>
-  <option value="k">k</option>
-  <option value="l">l</option>
-  <option value="m">m</option>
-  <option value="n">n</option>
-  <option value="o">o</option>
-  <option value="p">p</option>
-  <option value="q">q</option>
-  <option value="r">r</option>
-  <option value="s">s</option>
-  <option value="t">t</option>
-  <option value="u">u</option>
-  <option value="v">v</option>
-  <option value="w">w</option>
-  <option value="x">x</option>
-  <option value="y">y</option>
-  <option value="z">z</option>
+      <br><br>
 
-  <!-- ..... -->
-</select>
+     <button id="submit">Submit</button>
 
-<button id="guessLetter">Guess Letter</button>
+     <div id="result"></div>
+     <div id="score"></div>
 
-<h3>Guessed Letters</h3>
+     <script src="script.js"></script>
 
-<div id="guessedLetters"></div>
 
-<h4>Guesses Remaining...</h4>
-<div id="numGuesses"></div>
 
-<div id="word"></div>
+    
+    <h2>Earth before Carbon Dioxide emissions reach too high an amount:</h2>
+    <img id="earthBefore" src="" alt="Earth Image" width="300">
 
-<script src="script.js"></script>
+    <h2>Earth after CO2 emissions:</h2>
+    <img id="earthAfter" src="" alt="Dead Earth Image" width="300">
+
+    <script>
+        // Set the correct images for each ID
+        document.getElementById("earthBefore").src = "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg";
+        document.getElementById("earthAfter").src = "https://i.dailymail.co.uk/1s/2025/03/25/14/96549639-14534767-image-a-5_1742912316585.jpg";
+    </script>
+    
+    </body>
+    </html>
+
+<!DOCTYPE html>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Data Button</title>
+</head>
+<body>
+
+    <button onclick="saveData()">Save Data</button>
+
+    <script>
+        function saveData() {
+            alert("Data has been saved!"); 
+            console.log("User clicked 'Save Data'"); 
+        }
+    </script>
 
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+
+
+</body>
+</html>
+
+
